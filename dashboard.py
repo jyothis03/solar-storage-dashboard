@@ -5,7 +5,7 @@ st.set_page_config(page_title="Chainfly")
 st.title("Dashboard")
 
 if st.button("Get data"):
-    response=requests.get("http://127.0.0.1:8000/simulate")
+    response=requests.get("https://solar-storage-backend.onrender.com/simulate")
     data=response.json()
 
     st.metric("Panel Output(kW)",data["panel_output_kw"])
