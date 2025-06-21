@@ -4,7 +4,7 @@ import requests
 st.set_page_config(page_title="Chainfly")
 st.title("Dashboard")
 
-USE_LOCAL = True
+USE_LOCAL = False
 
 if st.button("Get data"):
 
