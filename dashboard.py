@@ -12,10 +12,6 @@ if st.button("Get data"):
         response= requests.get(" http://127.0.0.1:8000/simulate")
     else:
         response = requests.get("https://solar-storage-backend.onrender.com/simulate")
-    st.write("Status code:", response.status_code)  # Show status code in Streamlit
-    st.write("Raw response:", response.text)        # Show raw response in Streamlit
-
-    # Only try to parse JSON if the response is OK
     if response.headers.get("content-type", "").startswith("application/json"):
         data = response.json()
         st.metric("Panel Output(kW)", data["panel_output_kw"])
