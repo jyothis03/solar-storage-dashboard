@@ -65,7 +65,7 @@ if st.session_state.page == "trends":
     st.subheader(" Real-Time Trends")
 
     
-    url = "http://127.0.0.1:8000/charts" if USE_LOCAL else "https://solar-storage-backend.onrender.com//charts"
+    url = "http://127.0.0.1:8000/charts" if USE_LOCAL else "https://solar-storage-backend.onrender.com/charts"
 
     try:
         response = requests.get(url)
