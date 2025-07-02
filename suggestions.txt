@@ -1,0 +1,10 @@
+suggestions
+
+Enhance Simulation Options
+Add user input fields for:
+
+Location (affects irradiance)
+
+Battery size (e.g., 5 kWh vs. 10 kWh)
+
+System loss factor
