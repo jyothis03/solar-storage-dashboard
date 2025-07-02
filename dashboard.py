@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title="Chainfly", layout="centered")
 
 st.title("Welcome to Chainfly ⚡")
-USE_LOCAL = True
+USE_LOCAL = False
 
 if "page" not in st.session_state:
     st.session_state.page = "home"
