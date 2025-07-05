@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title="Chainfly", layout="centered")
 
 st.title("Welcome to Chainfly ⚡")
-USE_LOCAL = False
+USE_LOCAL = True
 
 if "page" not in st.session_state:
     st.session_state.page = "home"
@@ -40,6 +40,9 @@ if st.session_state.page == "simulate":
     # Battery size
     battery_size = st.slider("Battery size (kWh)", min_value=1, max_value=20, value=5)
 
+    efficiency = st.slider("Round-trip Efficiency (%)", min_value=70, max_value=100, value=90)
+    dod = st.slider("Depth of Discharge (DoD) (%)", min_value=50, max_value=100, value=80)
+
     # System loss factor
     loss_factor = st.slider("System loss factor (%)", min_value=0, max_value=50, value=10)
 
@@ -49,7 +52,9 @@ if st.session_state.page == "simulate":
             "battery_size": battery_size,
             "loss_factor": loss_factor,
             "scenario": scenario,
-            "noise": noise
+            "noise": noise,
+            "efficiency": efficiency,
+             "dod": dod
         }
         try:
             if USE_LOCAL:
