@@ -31,6 +31,12 @@ if st.session_state.page == "simulate":
     # Location as text input
     location = st.text_input("Location (e.g., Kerala, Delhi)", "Default")
 
+    # Scenario select
+    scenario = st.selectbox("Scenario", ["Clear", "Cloudy", "Monsoon"])
+
+    # Noise toggle
+    noise = st.checkbox("Add Random Noise")
+
     # Battery size
     battery_size = st.slider("Battery size (kWh)", min_value=1, max_value=20, value=5)
 
@@ -41,7 +47,9 @@ if st.session_state.page == "simulate":
         params = {
             "location": location,
             "battery_size": battery_size,
-            "loss_factor": loss_factor
+            "loss_factor": loss_factor,
+            "scenario": scenario,
+            "noise": noise
         }
         try:
             if USE_LOCAL:
@@ -70,6 +78,8 @@ if st.session_state.page == "simulate":
                 # ✅ Save in session_state
                 st.session_state.simulation_result = {
                     "Location": location,
+                    "Scenario": scenario,
+                    "Noise Enabled": noise,
                     "Battery Size (kWh)": battery_size,
                     "Loss Factor (%)": loss_factor,
                     "Panel Output (kW)": panel_output,
